@@ -36,7 +36,7 @@ public class PizzaFragment extends Fragment {
 
         CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(pizzaNames, pizzaImages);
         pizzaRecycler.setAdapter(adapter);
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         pizzaRecycler.setLayoutManager(layoutManager);
 
         adapter.setListener(new CaptionedImagesAdapter.Listener() {
