@@ -2,6 +2,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="feedback">Feedback</string>
     <string name="app_name">CatChat</string>
     <string name="user_name">spot@catchat.com</string>
     <string name="nav_inbox">Messages</string>

@@ -50,23 +50,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_drafts:
                 fragment = new DraftsFragment();
                 break;
-
             case R.id.nav_sent:
                 fragment = new SentItemsFragment();
                 break;
-
             case R.id.nav_trash:
                 fragment = new TrashFragment();
                 break;
-
             case R.id.nav_help:
                 intent = new Intent(this, HelpActivity.class);
                 break;
-
             case R.id.nav_feedback:
                 intent = new Intent(this, FeedbackActivity.class);
                 break;
-
             default:
                 fragment = new InboxFragment();
 
@@ -84,5 +79,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
