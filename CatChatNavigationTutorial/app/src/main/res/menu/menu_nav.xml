@@ -19,7 +19,6 @@
             android:icon="@android:drawable/ic_menu_delete"
             android:title="@string/nav_trash" />
     </group>
-
     <item android:title="@string/nav_support">
         <menu>
             <item
@@ -31,10 +30,6 @@
                 android:icon="@android:drawable/sym_action_email"
                 android:title="@string/nav_feedback"/>
         </menu>
-
-
     </item>
-
-
 
 </menu>
