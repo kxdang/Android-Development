@@ -20,7 +20,7 @@ public class Drink {
         this.imageResourceId = imageResourceId;
     }
 
-    public String getDescription() {
+    public String getDescriptiAon() {
         return description;
     }
 

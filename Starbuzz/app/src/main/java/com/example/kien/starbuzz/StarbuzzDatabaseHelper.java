@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 class StarbuzzDatabaseHelper extends SQLiteOpenHelper {
 
@@ -30,19 +32,24 @@ class StarbuzzDatabaseHelper extends SQLiteOpenHelper {
         drinkValues.put("NAME", name);
         drinkValues.put("DESCRIPTION", description);
         drinkValues.put("IMAGE_RESOURCE_ID", resourceId);
-        db.insert("DRINK", null, drinkValues);
+        try {
+            db.insertOrThrow("DRINK", null, drinkValues);
+        } catch (Exception e) {
+            Log.d("error", "error");
+        }
     }
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < 1) {
             db.execSQL("CREATE TABLE DRINK (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "NAME TEXT, "
-                    + "DECRIPTION TEXT, "
+                    + "DESCRIPTION TEXT, "
                     + "IMAGE_RESOURCE_ID INTEGER);");
 
             insertDrink(db, "Latte", "Espresso and steamed milk", R.drawable.latte);
             insertDrink(db, "Cappuccino", "Espresso, hot milk and steamed-milk foam", R.drawable.cappuccino);
             insertDrink(db, "Filter", "Our best drip coffee", R.drawable.filter);
+
         }
 
         if (oldVersion < 2) {

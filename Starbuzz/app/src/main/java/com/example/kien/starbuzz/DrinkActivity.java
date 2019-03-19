@@ -25,7 +25,7 @@ public class DrinkActivity extends Activity {
         //Create a cursor
         SQLiteOpenHelper starbuzzDatabaseHelper = new StarbuzzDatabaseHelper(this);
         try {
-            SQLiteDatabase db = starbuzzDatabaseHelper.getReadableDatabase();
+            SQLiteDatabase db = starbuzzDatabaseHelper.getWritableDatabase();
             Cursor cursor = db.query("DRINK",
                     new String[] {"NAME", "DESCRIPTION", "IMAGE_RESOURCE_ID"},
                     "_id = ?",
@@ -40,7 +40,6 @@ public class DrinkActivity extends Activity {
                 String descriptionText = cursor.getString(1);
                 int photoId = cursor.getInt(2);
 
-
                 //Populate the drink name
                 TextView name = (TextView)findViewById(R.id.name);
                 name.setText(nameText);
@@ -54,21 +53,15 @@ public class DrinkActivity extends Activity {
                 photo.setImageResource(photoId);
                 photo.setContentDescription(nameText);
 
-
             }
 
+            cursor.close();
+            db.close();
+
         } catch (SQLiteException e){
-            Toast toast = Toast.makeText(this, "Databasse unavailable", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
             toast.show();
         }
-
-
-
-
-
-
-
-
 
 
     }
