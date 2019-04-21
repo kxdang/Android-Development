@@ -7,4 +7,7 @@
         <item>Food</item>
         <item>Stores</item>
     </string-array>
+
+    <string name="favourite">Favourite</string>
+    <string name="favourites">Your Favourite Drinks:</string>
 </resources>

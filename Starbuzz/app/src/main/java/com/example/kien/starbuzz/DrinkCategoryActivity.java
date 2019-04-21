@@ -49,7 +49,6 @@ public class DrinkCategoryActivity extends Activity {
             public void onItemClick(AdapterView<?> listDrinks, View itemView, int position, long id) {
                 //Pass the drink the user clicks on to DrinkActivity
                 Intent intent = new Intent(DrinkCategoryActivity.this, DrinkActivity.class);
-
                 intent.putExtra(DrinkActivity.EXTRA_DRINKID, (int) id);
                 startActivity(intent);
             }
